@@ -1,0 +1,176 @@
+/* Общие стили */
+    .welcome_slide {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        column-gap: 1px;
+
+        height: 100vh;
+        transition: .2s ease-in-out;
+    }
+/* Общие стили */
+
+/*половина экрана*/
+    .item_window {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 10px;
+
+        height: 100%;
+        width: 50%;
+
+        user-select: none;
+
+        /* background: rgb(203, 203, 211); */
+    }
+
+/*элемент с текстом*/
+    .item_text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        min-width: 50%;
+        min-height: 50px;
+
+        font-size: 2em;
+        white-space: nowrap;
+
+        padding: 10px;
+
+        transform-origin: center right;
+        transform: rotate(-90deg) translateY(500px);
+
+        color: grey;
+        /* background: rgb(255, 255, 255); */
+
+        /* animation: item_text_anim 1s ease-in-out 5s;infinite */
+        transition: .2s ease-in-out;
+    }
+
+/*круг для фотографии*/
+    .photo {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        width: 90%;
+        max-width: 600px;
+        aspect-ratio: 1/1;
+
+        border-radius: 100%;
+        overflow: hidden;
+
+        transform: translate(-120%, -120%);
+
+        box-shadow: inset 0px 0px 25px -2px rgba(0,0,0,0.3);
+        background: rgb(178, 215, 230);
+        transition: .7s ease-in-out;
+    }
+    .photo img{
+        width: 100%;
+        transform: translateY(5%);
+        transition: .5s ease-in-out;
+    }
+
+/*Стрелка перейти ко второму слайду*/
+    .stroke_next_slide {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        width: 50px;
+        bottom: 10px;
+
+        cursor: pointer;
+
+        transform: translateY(300px);
+
+        /* background: rgb(134, 236, 160); */
+        transition: .7s ease-in-out;
+    }
+
+@media (orientation:portrait){/*ориентация экрана вертикальная*/
+    .welcome_slide {
+        flex-direction: column;
+    }
+    .item_window {
+        width: 100%;
+        height: 50%;
+        /* background: #ddc7c7; */
+    }
+    #two {
+        justify-content: flex-start;
+    }
+    .photo {
+        max-width: 300px;
+    }
+    .item_text {
+        min-height: 20px;
+    }
+
+}
+
+/* Появление строки с надписью */
+    @keyframes item_text_anim {
+        0% {
+            height: 0px;
+            transform: rotate(-90deg) translateY(500px);
+        }
+        60% {
+            height: 0px;
+            transform: rotate(0deg) translateY(-30px);
+        }
+        70% {
+            height: 0px;
+            transform: rotate(0deg) translateY(20px);
+        }
+        80% {
+            height: 0px;
+            transform: rotate(0deg) translateY(-10px);
+        }
+        85% {
+            height: 0px;
+            transform: rotate(0deg) translateY(5px);
+        }    
+        100% {
+            height: 0px;
+            transform: rotate(0deg) translateY(0px);
+        }
+    }
+
+/* замена первой строки с надписью */
+    @keyframes item_text_anim_first {
+        0% {
+            height: 0px;
+            transform: rotate(0deg) translateY(0px);
+        }
+        50% {
+            height: 0px;
+            transform: rotate(5deg) translateY(-20px);
+        }
+        100% {
+            height: 0px;
+            transform: rotate(0deg) translateY(0px);
+        }
+    }
+
+/* анимация стрелки перехода к следующему слайду */
+    @keyframes wiggle_stroke_next {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(20px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
